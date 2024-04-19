@@ -1,0 +1,13 @@
+kubectl apply -f mongo-secret.yaml
+kubectl apply -f mongo-deployment.yaml
+kubectl apply -f mongo-service.yaml
+kubectl apply -f mongo-config.yaml
+
+
+kubectl get service registry-service
+docker tag webapp:latest 10.105.148.4:30954/webapp:latest
+docker push 10.105.148.4:30954/webapp:latest
+
+
+kubectl apply -f api-deployment.yaml
+kubectl apply -f api-service.yaml
